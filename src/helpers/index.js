@@ -15,3 +15,12 @@ export const toast = new Toastly({
     position: "bottom-right",
     dismissible: true,
 });
+
+
+export function range(size, startAt = 0) {
+    return [...Array(size).keys()].map(i => i + startAt);
+}
+
+export function isNumeric(value) {
+    return /^\d+$/.test(value)
+}
