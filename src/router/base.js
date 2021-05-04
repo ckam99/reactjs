@@ -1,28 +1,27 @@
 import React from "react";
 import { Redirect } from "@reach/router";
-import { useRecoilValue } from 'recoil'
-import { IsAuthState } from '../store/states/base'
+import storage from '../store/local'
+import { useLocation } from '@reach/router'
 
 export const ProtectedRoute = ({ page: Component, ...rest }) => {
-    const isAuthenticated = useRecoilValue(IsAuthState)
+    const location = useLocation()
     const Route = (props) => {
-        if (isAuthenticated) {
+        if (storage.guard)
             return <Component {...props} {...rest} />;
-        } else {
-            return <Redirect to="/login" from={props.location} noThrow />;
+        else {
+            const redirect = `/login?redirect=${location.pathname}`
+            return <Redirect to={redirect} from={location.pathname} noThrow />;
         }
     };
     return <Route />;
 };
 
 export const GuestRoute = ({ page: Component, ...rest }) => {
-    const isAuthenticated = useRecoilValue(IsAuthState)
     const Route = (props) => {
-        if (isAuthenticated) {
+        if (storage.guard)
             return <Redirect to="/" from={props.location} noThrow />;
-        } else {
+        else
             return <Component {...props} {...rest} />;
-        }
     };
     return <Route />;
 };
