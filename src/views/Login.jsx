@@ -43,7 +43,7 @@ const LoginView = () => {
     return <Wrapper>
         <Layout>
             <Layout.Head>
-                <title>Login</title>
+                <title>Sign out</title>
             </Layout.Head>
             <Layout.Container>
                 <div className="page">
