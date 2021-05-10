@@ -2,7 +2,7 @@ import { atom } from "recoil"; import storage from '../local'
 
 export const isAuthState = atom({
     key: "is-auth-state",
-    default: storage.exists('token'),
+    default: storage.guard,
 });
 
 export const authUserState = atom({

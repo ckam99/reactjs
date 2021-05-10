@@ -2,12 +2,12 @@ import React from 'react'
 import Logo from '../../assets/logo.svg';
 import NavItem from '../shared/NavItem'
 import { useRecoilValue } from "recoil";
-import { IsAuthState } from "../../store/states/base";
+import { isAuthState } from "../../store/states/base";
 
 
 const Topbar = () => {
 
-    const isAuth = useRecoilValue(IsAuthState);
+    const isAuth = useRecoilValue(isAuthState);
 
     return (
         <nav className="topbar  bg-dark">
