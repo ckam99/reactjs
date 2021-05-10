@@ -23,7 +23,7 @@ const LoginView = () => {
         },
         validationSchema: Yup.object({
             email: Yup.string()
-                .email("Invalid email")
+                .email("Invalid email address")
                 .required("This field is required"),
             password: Yup.string()
                 .required("This field is required")
