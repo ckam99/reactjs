@@ -1,5 +1,5 @@
 import React from 'react'
-import Main from '../../components/layouts/Main'
+import MainLayout from '../../components/layouts/Main'
 import { BaseLink } from '../../components/shared/NavItem'
 import { usePost } from '../../hooks/posts'
 import styled from 'styled-components'
@@ -9,19 +9,24 @@ import styled from 'styled-components'
 const ListPostView = () => {
     const [loaded, posts, error] = usePost()
 
-    return (<Main>
-        <Wrapper>
-            <h1>Http request example</h1>
-            {loaded ? <div>Loading ... </div> : <div className="posts">
-                {posts.map(p => <div className="post" key={p.id}>
-                    <BaseLink to={`/posts/${p.id}`} className="post-title">
-                        {p.title} - {p.id}
-                    </BaseLink>
-                    <div className="post-body">{p.body}</div>
-                </div>)}
-            </div>}
-        </Wrapper>
-    </Main>)
+    return <Wrapper>
+        <MainLayout>
+            <MainLayout.Head>
+                <title>List posts</title>
+            </MainLayout.Head>
+            <MainLayout.Container>
+                <h1>Http request example</h1>
+                {loaded ? <div>Loading ... </div> : <div className="posts">
+                    {posts.map(p => <div className="post" key={p.id}>
+                        <BaseLink to={`/posts/${p.id}`} className="post-title">
+                            {p.title} - {p.id}
+                        </BaseLink>
+                        <div className="post-body">{p.body}</div>
+                    </div>)}
+                </div>}
+            </MainLayout.Container>
+        </MainLayout>
+    </Wrapper>
 }
 
 const Wrapper = styled.div`

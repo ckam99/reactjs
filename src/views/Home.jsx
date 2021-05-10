@@ -1,25 +1,30 @@
 import React from 'react'
-import Main from '../components/layouts/Main'
 import logo from '../assets/logo.svg';
 import styled from 'styled-components'
+import MainLayout from '../components/layouts/Main';
 
 const HomeView = () => {
-    return <Main>
-        <Wrapper>
-            <div className="App">
-                <header className="App-header">
-                    <img src={logo} className="App-logo" alt="logo" />
-                    <p> Edit <code>src/App.jsx</code> and save to reload. </p>
-                    <a
-                        className="App-link"
-                        href="https://reactjs.org"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    > Learn React </a>
-                </header>
-            </div>
-        </Wrapper>
-    </Main>
+  return <Wrapper>
+    <MainLayout>
+      <MainLayout.Head>
+        <title>Home Page</title>
+      </MainLayout.Head>
+      <MainLayout.Container>
+        <div className="App">
+          <header className="App-header">
+            <img src={logo} className="App-logo" alt="logo" />
+            <p> Edit <code>src/App.jsx</code> and save to reload. </p>
+            <a
+              className="App-link"
+              href="https://reactjs.org"
+              target="_blank"
+              rel="noopener noreferrer"
+            > Learn React </a>
+          </header>
+        </div>
+      </MainLayout.Container>
+    </MainLayout>
+  </Wrapper>
 }
 
 const Wrapper = styled.div`

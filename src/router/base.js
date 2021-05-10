@@ -8,10 +8,8 @@ export const ProtectedRoute = ({ page: Component, ...rest }) => {
     const Route = (props) => {
         if (storage.guard)
             return <Component {...props} {...rest} />;
-        else {
-            const redirect = `/login?redirect=${location.pathname}`
-            return <Redirect to={redirect} from={location.pathname} noThrow />;
-        }
+        const redirect = `/login?redirect=${location.pathname}`
+        return <Redirect to={redirect} from={location.pathname} noThrow />;
     };
     return <Route />;
 };
@@ -20,8 +18,7 @@ export const GuestRoute = ({ page: Component, ...rest }) => {
     const Route = (props) => {
         if (storage.guard)
             return <Redirect to="/" from={props.location} noThrow />;
-        else
-            return <Component {...props} {...rest} />;
+        return <Component {...props} {...rest} />;
     };
     return <Route />;
 };
