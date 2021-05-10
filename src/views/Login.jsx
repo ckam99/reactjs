@@ -23,7 +23,7 @@ const LoginView = () => {
         },
         validationSchema: Yup.object({
             email: Yup.string()
-                .email("Invalid email")
+                .email("Invalid email address")
                 .required("This field is required"),
             password: Yup.string()
                 .required("This field is required")
@@ -43,7 +43,7 @@ const LoginView = () => {
     return <Wrapper>
         <Layout>
             <Layout.Head>
-                <title>Login</title>
+                <title>Sign out</title>
             </Layout.Head>
             <Layout.Container>
                 <div className="page">
