@@ -9,7 +9,7 @@ export interface RouteProps {
     exact?: boolean
     authRequired?: boolean
     guest?: boolean,
-    nested?: Array<RouteProps>
+    children?: Array<RouteProps>
 }
 
 
@@ -19,26 +19,23 @@ export const Route: React.FC<RouteProps> = ({ component, path, exact, authRequir
     if (authRequired && condition)
         return <Redirect to="/login" />
 
-    return <BaseRoute path={path} exact={exact}  >
-        {component}
-    </BaseRoute>
+    return <BaseRoute path={path} exact={exact} component={component} />
 }
 
 export const RenderRoute: React.FC<RouteProps> = (route: RouteProps) => {
-    if (route.nested && route.nested.length > 0) {
+    if (route.children && route.children.length > 0) {
         console.log(route);
 
-        return <Route  {...route} >
-            <div>...oo</div>
+        return <>
+            <Route  {...route} />
             <Switch>
-                {route.nested.map((r, i) => <RenderRoute
+                {route.children.map((r, i) => <RenderRoute
                     path={`${route.path}/${r.path}`}
                     {...r}
                     key={i}
                 />)}
             </Switch>
-        </Route>
-
+        </>
     }
     return <Route  {...route} />
 }

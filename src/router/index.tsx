@@ -17,7 +17,7 @@ const routes: Array<RouteProps> = [
         component: Users,
         exact: true,
         authRequired: false,
-        nested: [
+        children: [
             {
                 path: ':id',
                 component: UserDetail,
