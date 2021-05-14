@@ -4,12 +4,13 @@ import MainLayout from "../../components/layouts/Main";
 import { useCurrentUser } from "../../store/actions/users";
 
 
+interface Props extends RouteComponentProps<{ id: string }> {
 
+}
 
-const UserDetail = ({ match }: RouteComponentProps<{ id: string }>) => {
+const UserDetail: React.FC<Props> = ({ match }) => {
 
     const { state, user } = useCurrentUser(parseInt(match.params.id))
-
 
     return <MainLayout>
         <MainLayout.Head>

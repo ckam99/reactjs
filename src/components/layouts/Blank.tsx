@@ -8,7 +8,7 @@ const BlankLayout: React.FC & {
     Container: typeof Container
 } = ({ children }) => {
     return <div className="App">
-        <div className="App-header">
+        <div className="App-content">
             {children}
         </div>
     </div>

@@ -10,7 +10,7 @@ type FormProps = {
     password: string
 }
 const Login: React.FC = () => {
-
+    const history = useHistory()
     const setAuth = useSetRecoilState(currentAuthState)
     const [state, setState] = React.useState<FormProps>({
         email: '',
@@ -20,11 +20,11 @@ const Login: React.FC = () => {
     function handleSubmit(e: FormEvent<HTMLFormElement>) {
         e.preventDefault()
 
-        if (state.email === 'test@t.me' && state.password === 'test') {
-            const user = { email: state.email, name: 'OK us', id: Date.now() }
+        if (state.email === 'ckam225@gmail.com' && state.password === 'test') {
+            const user = { email: state.email, name: 'Ckam', username: 'ckam', id: Date.now() }
             localStorage.setItem('user', JSON.stringify(user))
             setAuth({ ...user })
-            useHistory().push('/')
+            history.push('/')
         }
     }
 

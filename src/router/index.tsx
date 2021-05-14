@@ -1,42 +1,23 @@
 import React from 'react'
 import { BrowserRouter, Switch } from 'react-router-dom'
-import Home from '../views/Home'
-import Users from '../views/users/Users'
-import UserDetail from '../views/users/UserDetail'
-import { RenderRoute, Route, RouteProps } from './base'
+import { Route } from './base'
+import About from '../views/About'
 import NotFound from '../views/errors/404'
+import Home from '../views/Home'
+import Login from '../views/Login'
+import UserDetail from '../views/users/UserDetail'
+import UserList from '../views/users/UserList'
 
-const routes: Array<RouteProps> = [
-    {
-        path: '/',
-        component: Home,
-        exact: true,
-    },
-    {
-        path: '/users',
-        component: Users,
-        exact: true,
-        authRequired: false,
-        children: [
-            {
-                path: ':id',
-                component: UserDetail,
-                exact: true
-            }
-        ]
-    },
-    {
-        component: NotFound,
-        exact: true,
-    },
-]
 
 const Router = () => {
     return <BrowserRouter>
         <Switch>
-            {routes.map((route, i) => {
-                return <RenderRoute key={i} {...route} />
-            })}
+            <Route path="/" exact component={Home} />
+            <Route path="/users" exact component={UserList} authRequired />
+            <Route path="/users/:id" exact component={UserDetail} authRequired />
+            <Route path="/login" exact component={Login} />
+            <Route path="/about" exact component={About} />
+            <Route component={NotFound} />
         </Switch>
     </BrowserRouter>
 }

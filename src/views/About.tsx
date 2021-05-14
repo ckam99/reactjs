@@ -10,7 +10,7 @@ const About: React.FC = () => {
         </MainLayout.Head>
         <MainLayout.Container>
             <h1>About us</h1>
-            <p>
+            <p style={{ maxWidth: '700px' }}>
                 Lorem ipsum dolor, sit amet consectetur adipisicing elit.
                 Laboriosam sit velit quos! Dicta earum corporis doloremque,
                 enim veniam excepturi consequuntur ducimus? Ab,
