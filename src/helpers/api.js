@@ -1,6 +1,6 @@
 import axios from "axios";
 import storage from "../store/local";
-import { toast } from "../helpers";
+import { toast } from ".";
 import { navigate } from "@reach/router";
 
 const api = axios.create({

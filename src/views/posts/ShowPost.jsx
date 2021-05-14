@@ -1,10 +1,16 @@
 import React from 'react'
 import MainLayout from '../../components/layouts/Main'
-import { useCurrentPost } from '../../hooks/posts'
 import styled from 'styled-components'
+import usePostAction from '../../store/actions/post'
 
 const ShowPostView = ({ postId }) => {
-    const [loaded, post, error] = useCurrentPost(postId)
+    const { loading, post, fetchPost, error } = usePostAction()
+
+    React.useEffect(() => {
+        fetchPost(postId)
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [postId])
+
 
     return <Wrapper>
         <MainLayout>
@@ -14,7 +20,7 @@ const ShowPostView = ({ postId }) => {
             <MainLayout.Container>
                 <center>
                     <h1>User detail: {post.id}</h1>
-                    {loaded ? <div>fetch user ...</div> :
+                    {loading ? <div>fetch user ...</div> :
                         error ? <div>Some error occured</div> :
                             <div>
                                 <div className="post-title"> {post.title}</div>

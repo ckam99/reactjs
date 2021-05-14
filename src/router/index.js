@@ -1,5 +1,5 @@
 import React from "react";
-import { Router } from "@reach/router";
+import { Router as BaseRouter } from "@reach/router";
 import { ProtectedRoute, GuestRoute, Route, NestedRoute } from "./base";
 
 import HomePage from "../views/Home";
@@ -9,9 +9,9 @@ import ShowPostPage from "../views/posts/ShowPost";
 import LoginPage from "../views/Login";
 import AboutPage from "../views/About";
 
-export default () => {
+const Router = () => {
     return (
-        <Router>
+        <BaseRouter>
             <Route path="/" page={HomePage} />
             <NestedRoute path="/posts">
                 <ProtectedRoute path="/" page={ListPostPage} />
@@ -20,6 +20,7 @@ export default () => {
             <GuestRoute path="/login" page={LoginPage} />
             <Route path="/about" page={AboutPage} />
             <Route default page={NotFoundPage} />
-        </Router>
+        </BaseRouter>
     );
 };
+export default Router
