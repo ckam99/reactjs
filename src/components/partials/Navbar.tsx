@@ -5,6 +5,7 @@ const Navbar: React.FC = () => {
     return <div className="navbar">
         <ul>
             <li><NavLink to="/" exact activeClassName="active">Home</NavLink></li>
+            <li><NavLink to="/about" exact activeClassName="active">About</NavLink></li>
             <li><NavLink to="/users" activeClassName="active">Users</NavLink></li>
         </ul>
     </div>

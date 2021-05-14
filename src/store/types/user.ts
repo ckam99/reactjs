@@ -8,6 +8,7 @@ export interface User {
 }
 
 export interface IUser {
-    users: User[]
-    currentUser: User
+    data: User[] | User
+    loading: boolean
+    error: boolean | object | string
 }

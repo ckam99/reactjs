@@ -5,23 +5,14 @@ import { IUser, User } from '../types/user'
 
 
 
-export const userState = atom<IUser>({
-    key: 'user-state',
-    default: {
-        users: [] as User[],
-        currentUser: {} as User
-    }
+export const userState = atom<User[]>({
+    key: 'list-users-state',
+    default: [] as User[]
 })
 
-export const currentUserState = selector<User>({
+export const currentUserState = atom<User>({
     key: 'current-user-state',
-    get: ({ get }) => {
-        const { currentUser } = get(userState)
-        return currentUser
-    },
-    set: ({ set, get }, newUser) => {
-        return set(userState, { users: get(userState).users, currentUser: newUser } as IUser)
-    }
+    default: {} as User
 })
 
 export const listUserState = selector<User[]>({
