@@ -1,27 +1,44 @@
 {
-    "extends": [
-        "react-app",
-        "react-app/jest",
-        "plugin:prettier/recommended",
-        "prettier"
+  "extends": ["react-app", "react-app/jest", "plugin:prettier/recommended", "prettier"],
+  "rules": {
+    "prettier/prettier": ["error"],
+    "no-unused-vars": "error",
+    "@typescript-eslint/no-unused-vars": ["error"],
+    "no-console": "warn",
+    "quotes": ["error", "single"],
+    "jsx-quotes": ["error", "prefer-double"],
+    "prefer-const": "error",
+    "indent": ["error", 2],
+    "max-len": ["error", { "code": 120 }],
+    // "comma-dangle": ["warn", "always-multiline"],
+    "comma-dangle": [
+      "error",
+      {
+        "arrays": "always-multiline",
+        "objects": "always-multiline",
+        "imports": "never",
+        "exports": "never",
+        "functions": "never"
+      }
     ],
-    "rules": {
-        "no-unused-vars":"error",
-        "@typescript-eslint/no-unused-vars": ["error"],
-        "no-console":"warn",
-        "quotes": ["error", "single"],
-        "jsx-quotes": ["error", "prefer-double"],
-        "prefer-const": "error",
-        "indent": ["error", 2],
-        "max-len": ["error", {"code": 120}],
-        "comma-dangle": ["error", "always-multiline"],
-        "semi": ["warn", "always"],
-        "import/order": ["error", {
-            "groups": ["builtin", "internal", "external", "parent", "sibling", "index", "object", "type"],
-            "newlines-between": "always-and-inside-groups"
-        }]
-    },
-    "plugins": [
-        "prettier"
+    "semi": ["error", "never"],
+    "@typescript-eslint/semi": ["error", "never"],
+    "import/order": [
+      "warn",
+      {
+        "groups": [
+          "builtin",
+          "internal",
+          "external",
+          "parent",
+          "sibling",
+          "index",
+          "object",
+          "type"
+        ],
+        "newlines-between": "always-and-inside-groups"
+      }
     ]
+  },
+  "plugins": ["prettier"]
 }
