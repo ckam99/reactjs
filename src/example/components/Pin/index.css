@@ -1,0 +1,26 @@
+/* .pin {
+  appearance: none;
+  border: none;
+  background: none;
+  width: 74px;
+  height: 74px;
+}
+.pin img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+} */
+
+.marker-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 52px;
+  height: 52px;
+}
+
+.marker-btn img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
