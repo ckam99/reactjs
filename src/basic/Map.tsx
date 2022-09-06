@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Map, {
+import ReactMapGL, {
   Marker,
   MapLayerMouseEvent,
   ViewStateChangeEvent,
@@ -19,7 +19,7 @@ type Place = {
   };
 };
 
-function App() {
+function Map() {
   const [viewState, setViewState] = useState({
     longitude: 37.4809356,
     latitude: 55.5451786,
@@ -75,7 +75,7 @@ function App() {
         {viewState.latitude.toFixed(4)} | Zoom: {viewState.zoom.toFixed(2)}
       </div>
 
-      <Map
+      <ReactMapGL
         initialViewState={viewState}
         style={{ width: "100vw", height: "100vh" }}
         mapboxAccessToken={import.meta.env.VITE_APP_MAPBOX_TOKEN}
@@ -103,7 +103,6 @@ function App() {
             <Pin />
           </Marker>
         ))}
-        <GeolocateControl />
 
         {currentPlace && (
           <Popup
@@ -124,11 +123,11 @@ function App() {
             </div>
           </Popup>
         )}
-      </Map>
+      </ReactMapGL>
 
       <MapMode onClick={(e) => setMapMode(e)} defaultMode="dark" />
     </>
   );
 }
 
-export default App;
+export default Map;
