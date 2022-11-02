@@ -21,7 +21,7 @@ export default function BasicExample() {
 
   useEffect(()=>{
     //websocket onopen event listener
-   let wss = new WebSocket("ws://localhost:3000/ws/123?v=1.0")
+   let wss = new WebSocket("ws://localhost:9000/ws/123?v=1.0")
    wss.onopen = () => {
      console.log("connected websocket main component");
      wss.send("TRAVELS-GET")

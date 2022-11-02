@@ -2,9 +2,9 @@ import { useState, useCallback, useEffect } from 'react';
 import useWebSocket, { ReadyState } from 'react-use-websocket';
 import { Counter } from '../model';
 
-export const ExternalLibExample = () => {
+const ExternalLibExample = () => {
 
-  const { sendMessage, lastMessage, readyState } = useWebSocket('ws://localhost:3000/ws/123?v=1.0');
+  const { sendMessage, lastMessage, readyState } = useWebSocket('ws://localhost:9000/ws/123?v=1.0');
   const [counter, setCounter] = useState<Counter>()
   
 
@@ -48,3 +48,5 @@ export const ExternalLibExample = () => {
     </div>
   );
 };
+
+export  default ExternalLibExample
